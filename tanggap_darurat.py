@@ -7,7 +7,7 @@ def gbfs(grid, start, goal):
     came_from = {}
 
     while open_list:
-        open_list.sort()  # Urutkan berdasarkan heuristik
+        open_list.sort()  
         _, x, y = open_list.pop(0)
         if (x, y) == goal:
             path = []
@@ -27,13 +27,13 @@ def gbfs(grid, start, goal):
                 if (nx, ny) not in visited:
                     h = heuristic_manhattan((nx, ny), goal)
                     open_list.append((h, nx, ny))
-                    came_from[(nx, ny)] = (x, y)  # Fixed the syntax error
+                    came_from[(nx, ny)] = (x, y)  
     return None
 
 def heuristic_manhattan(a, b):
     return abs(a[0]-b[0]) + abs(a[1]-b[1])
 
-# Contoh grid:
+
 grid = [
     ['S', '.', '.', 'T'],
     ['T', '.', 'T', '.'],
